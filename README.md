@@ -1,21 +1,26 @@
-Local AI Agent 🤖
-A lightweight Python-based AI agent that runs locally using Ollama. This project demonstrates how to integrate Large Language Models (LLMs) into a terminal-based chat application.
+# Local AI Agent 🤖
 
-🚀 Getting Started
-Prerequisites
-Python 3.10+
+A lightweight Python-based AI agent that runs locally using **Ollama**. This project demonstrates how to integrate Large Language Models (LLMs) into a terminal-based chat application.
 
-Ollama installed and running.
+## 🚀 Getting Started
 
-The Llama 3 model pulled: ollama pull llama3
+### Prerequisites
+* **Python 3.10+**
+* **Ollama** installed and running.
+* The **Llama 3** model pulled: `ollama pull llama3`
 
-Installation
-Clone the repository:
-git clone https://github.com/vilker8/ai-agent-lab.git
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/vilker8/ai-agent-lab.git](https://github.com/vilker8/ai-agent-lab.git)
+   ```
 
-Install dependencies:
-pip install ollama
+2. Install dependencies:
+   ```bash
+   pip install ollama
+   ```
 
-🛠️ Usage
+## 🛠️ Usage
 Run the main script:
+```bash
 python main.py
