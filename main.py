@@ -1,27 +1,27 @@
 from ollama import chat, ChatResponse
 
-# 1. MEMÓRIA INICIAL: Definimos a 'regra do jogo' (system)
+# 1. INITIAL MEMORY: Defining the 'rules of the game' (System Prompt)
 history = [
     {
         'role': 'system', 
-        'content': 'Você é um assistente pessoal. Responda de forma curta, clara e use apenas um emoji por resposta.'
+        'content': 'You are a personal assistant. Keep your answers short, clear, and use only one emoji per response.'
     }
 ]
 
 while True:
-    # 2. ENTRADA: Capturamos a fala do usuário
-    user_input = input("Você: ") 
+    # 2. INPUT: Capture user input from the terminal
+    user_input = input("You: ") 
     
-    # 3. REGISTRO (User): Guardamos o que o usuário disse no histórico
+    # 3. REGISTRATION (User): Save user's message to the chat history
     history.append({'role': 'user', 'content': user_input}) 
     
-    # 4. PROCESSAMENTO: Enviamos a lista COMPLETA para o modelo
-    # 'messages=history' garante que a IA leia o passado antes de responder
+    # 4. PROCESSING: Send the ENTIRE history to the model
+    # 'messages=history' ensures the AI considers previous context before responding
     response: ChatResponse = chat(model='llama3.2:1b', messages=history)
     
-    # 5. SAÍDA: Exibimos apenas o texto da resposta (.content)
-    print(f"IA: {response.message.content}") 
+    # 5. OUTPUT: Display only the text content of the response
+    print(f"AI: {response.message.content}") 
     
-    # 6. REGISTRO (AI): 'Grampeamos' a resposta da IA no histórico 
-    # Isso evita que ela esqueça o que acabou de dizer na próxima rodada
+    # 6. REGISTRATION (AI): Append the AI's response to the history
+    # This prevents the model from forgetting what it just said in the next turn
     history.append(response.message)
